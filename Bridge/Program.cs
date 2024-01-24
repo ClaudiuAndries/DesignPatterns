@@ -17,6 +17,14 @@ class MainApp
         }
     }
 
+    public class RasterRenderer : IRenderer
+    {
+        public void RenderCircle(float radius)
+        {
+            Console.WriteLine($"Drawing pixels for circle with radius {radius}");
+        }
+    }
+
     public abstract class Shape
     {
         protected IRenderer renderer;
@@ -47,14 +55,7 @@ class MainApp
             _radius *= factor;
         }
     }
-
-    public class RasterRenderer : IRenderer
-    {
-        public void RenderCircle(float radius)
-        {
-            Console.WriteLine($"Drawing pixels for circle with radius {radius}");
-        }
-    }
+      
     static void Main()
     {
         IRenderer renderer = new RasterRenderer();
